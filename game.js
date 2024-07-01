@@ -1,29 +1,47 @@
-import io from 'socket.io-client';
-import { DIRECTION_BOTTOM, DIRECTION_UP, DIRECTION_LEFT, DIRECTION_RIGHT, map, oneBlockSize, score, canvasContext, pacmanFrames, canvas, ghostFrames, oreoFrame } from "./const.js";
+console.log("game.js loaded");
 
-import { Pacman } from './pacman.js';
-import { Ghost, updateGhosts, drawGhosts, ghosts, createGhosts } from './ghost.js';
+import io from "socket.io-client";
+import {
+  DIRECTION_BOTTOM,
+  DIRECTION_UP,
+  DIRECTION_LEFT,
+  DIRECTION_RIGHT,
+  map,
+  oneBlockSize,
+  score,
+  canvasContext,
+  pacmanFrames,
+  canvas,
+  ghostFrames,
+  oreoFrame,
+} from "./const.js";
 
-const socket = io('http://localhost:3000');
+import { Pacman } from "./pacman.js";
+import {
+  Ghost,
+  updateGhosts,
+  drawGhosts,
+  ghosts,
+  createGhosts,
+} from "./ghost.js";
 
-socket.on('connect', () => {
-  console.log('Connected to server:');
+const socket = io("http://localhost:3000");
+
+socket.on("connect", () => {
+  console.log("Connected to server:");
 });
 
 // Example: Listen for a 'message' event from the server
-socket.on('product', (data) => {
-  console.log('Received message from server:', data);
+socket.on("product", (data) => {
+  console.log("Received message from server:", data);
 });
-
 
 let createRect = (x, y, width, height, color) => {
   canvasContext.fillStyle = color;
   canvasContext.fillRect(x, y, width, height);
 };
 
-
 export let lives = 3;
-
 
 // Game variables
 export const fps = 30;
@@ -40,8 +58,6 @@ for (let i = 0; i < map.length; i++) {
     }
   }
 }
-
-
 
 // for (let i = 0; i < map.length; i++) {
 //     for (let j = 0; j < map[0].length; j++) {
@@ -75,7 +91,7 @@ let onGhostCollision = (pacman) => {
   lives--;
   restartPacmanAndGhosts(pacman);
   if (lives == 0) {
-    socket.emit('loose')
+    socket.emit("loose");
   }
 };
 
@@ -87,7 +103,7 @@ let update = (pacman) => {
     onGhostCollision(pacman);
   }
   if (oreos == score) {
-    socket.emit('win')
+    socket.emit("win");
   }
 };
 
