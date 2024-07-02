@@ -11,8 +11,8 @@ export let createGhosts = (pacman) => {
     ghosts = [];
     for (let i = 0; i < ghostCount * 2; i++) {
       let newGhost = new Ghost(
-        9 * oneBlockSize + (i % 2 == 0 ? 0 : 1) * oneBlockSize,
-        10 * oneBlockSize + (i % 2 == 0 ? 0 : 1) * oneBlockSize,
+        9 * oneBlockSize + (i % 2 == 0 ? 0 : 0) * oneBlockSize,
+        10 * oneBlockSize + (i % 2 == 0 ? 0 : 0) * oneBlockSize,
         oneBlockSize,
         oneBlockSize,
         pacman.speed / 2,
