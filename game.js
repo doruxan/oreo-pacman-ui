@@ -1,5 +1,3 @@
-console.log("game.js loaded");
-
 import io from "socket.io-client";
 import {
   DIRECTION_BOTTOM,
@@ -135,9 +133,9 @@ let drawRemainingLives = () => {
       pacmanFrames,
       2 * oneBlockSize,
       0,
-      oneBlockSize,
-      oneBlockSize,
-      350 + i * oneBlockSize,
+      oneBlockSize / 2,
+      oneBlockSize / 2,
+      300 + i * oneBlockSize,
       oneBlockSize * map.length + 2,
       oneBlockSize,
       oneBlockSize
