@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pac-Man Game</title>
+    <title>You Won!</title>
     <style>
       @font-face {
         font-family: 'PacmanAtari';
@@ -31,7 +31,7 @@
           font-size: 3rem;
           margin-bottom: 20px;
       }
-      a#startButton {
+      a#restartButton {
         display: inline-block;
         padding: 10px 20px;
         font-size: 1.5rem;
@@ -43,20 +43,16 @@
         text-decoration: none;
         font-family: 'PacmanAtari', sans-serif;
       }
-      a#startButton:hover {
+      a#restartButton:hover {
           background-color: orange;
       }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Play Pac-Man!</h1>
-        <a href="game.html" id="startButton">Start Game</a>
+        <h1>Congratulations!</h1>
+        <p>You Won the Game!</p>
+        <a href="game.html" id="restartButton">Play Again</a>
     </div>
-    <div style="display:none;">
-      <a href="win.html"></a>
-      <a href="loose.html"></a>
-
-  </div>
 </body>
 </html>

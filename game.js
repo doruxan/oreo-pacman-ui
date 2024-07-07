@@ -89,7 +89,8 @@ let onGhostCollision = (pacman) => {
   lives--;
   restartPacmanAndGhosts(pacman);
   if (lives == 0) {
-    socket.emit("loose");
+    // socket.emit("loose");
+    window.location.href = "loose.html";
   }
 };
 
@@ -101,7 +102,8 @@ let update = (pacman) => {
     onGhostCollision(pacman);
   }
   if (oreos == score) {
-    socket.emit("win");
+    // socket.emit("win");
+    window.location.href = "win.html";
   }
 };
 
@@ -124,7 +126,7 @@ let drawFoods = () => {
 };
 
 let drawRemainingLives = () => {
-  canvasContext.font = "20px Emulogic";
+  canvasContext.font = "14px PacmanAtari";
   canvasContext.fillStyle = "white";
   canvasContext.fillText("Lives: ", 220, oneBlockSize * (map.length + 1));
 
@@ -144,7 +146,7 @@ let drawRemainingLives = () => {
 };
 
 let drawScore = () => {
-  canvasContext.font = "20px Emulogic";
+  canvasContext.font = "14px PacmanAtari";
   canvasContext.fillStyle = "white";
   canvasContext.fillText("Score: " + score, 0, oneBlockSize * (map.length + 1));
 };
