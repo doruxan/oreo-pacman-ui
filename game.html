@@ -23,16 +23,33 @@
         font-family: 'PacmanAtari', sans-serif;
         touch-action: none;
       }
-      canvas {
-        width: 1000px;  /* Fixed size */
-        height: 1000px;
-      }
+        canvas {
+            width: 1000px;  /* Fixed size */
+            height: 1000px;
+            z-index: 1; /* Ensure canvas stays on top */
+        }
+        .banner {
+            position: absolute;
+            width: 450px;
+            height: auto;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 0;
+        }
+        #leftBanner {
+            left: 0;
+        }
+        #rightBanner {
+            right: 0;
+        }
     </style>
     <title>Pacman</title>
 </head>
 
-<body style="margin: 0; background-color: black;">
-    <canvas id="canvas" width="1000" height="1000"></canvas>
+<body style="margin: 0; background-color: black;">    
+  <img src="banner.png" id="leftBanner" class="banner" alt="Left Banner">
+  <canvas id="canvas" width="1000" height="1000"></canvas>
+  <img src="banner.png" id="rightBanner" class="banner" alt="Right Banner">
     <div style="display:none;">
         <img id="animation" src="animations.gif" width="280" height="40">
         <img id="ghosts" src="ghost.png" width="280" height="40">
